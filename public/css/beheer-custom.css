@@ -1,0 +1,62 @@
+/* Algemene layout voor beheerpagina's: Sticky Footer */
+/* Zorgt ervoor dat de hoofdinhoud de beschikbare hoogte vult,
+   wat helpt bij het positioneren van een 'sticky footer'. */
+body.beheer-page-active {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* De achtergrondkleur wordt nu beheerd door Bootstrap's light/dark mode.
+       Een fallback was: background-color: #f8f9fa; */
+}
+
+/* Wrapper voor de hoofdinhoud (<main>) om 'flex-grow' toe te passen.
+   Deze class wordt gebruikt in layouts/beheer.blade.php. */
+main.beheer-content-wrapper {
+    flex-grow: 1;
+}
+
+/* --- Beheer Navigatie --- */
+/* Styling voor de navigatiebalk in het beheergedeelte.
+   De basisstyling (achtergrond, tekstkleur) komt grotendeels van Bootstrap klassen
+   zoals .navbar, .bg-body-tertiary, of .bg-dark, toegepast in nav-bootstrap.blade.php. */
+
+/* Specifieke styling voor de "Terug naar Kiosk" link in de beheer navigatie. */
+.nav-link-kiosk {
+    font-size: 0.9em;
+    /* De tekstkleur wordt dynamisch bepaald door Bootstrap's .nav-link en de actieve dark/light mode. */
+}
+
+/* Horizontale lijn in de navigatie. */
+.nav-hr {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border: 0;
+    border-top: 1px solid var(--bs-border-color-translucent); /* Gebruikt Bootstrap CSS variabele voor consistentie. */
+}
+
+/* --- Formulieren - Barcode Input Groepen --- */
+/* Aanpassingen voor knoppen (+ en X) binnen barcode input-groepen. */
+.barcode-input-group .btn {
+    padding-top: 0.25rem;    /* Fijnafstelling voor verticale padding, */
+    padding-bottom: 0.25rem; /* indien .btn-sm niet het gewenste resultaat geeft. */
+    line-height: 1.5;
+}
+
+/* --- Tabellen in Beheer --- */
+/* Styling voor de THT (Tenminste Houdbaar Tot) status badge in tabellen. */
+.tht-status-badge {
+    font-size: 0.75em;
+    padding: .3em .6em;
+    vertical-align: middle;
+    /* Kleuren worden dynamisch toegepast via Bootstrap klassen (bijv. .badge, .bg-danger) in de Blade templates. */
+}
+
+/* Specifieke aanpassing voor de tabel binnen de "Persoon Transacties" modal. */
+#persoonTransactiesModalBodyContent table {
+    font-size:0.85em; /* Iets kleiner lettertype voor betere weergave in de modal. */
+}
+
+/* Styling voor het maandselectieformulier op de transactieoverzicht pagina. */
+.month-selector-form input[type="month"] {
+    width: auto; /* Voorkomt dat het inputveld de volledige breedte inneemt. */
+}

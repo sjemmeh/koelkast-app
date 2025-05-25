@@ -1,0 +1,58 @@
+/* public/css/kiosk-custom.css */
+
+/* Globale Kiosk pagina layout: centreert de content */
+body.kiosk-page-active { /* Voeg class="kiosk-page-active" toe aan <body> in layouts/kiosk.blade.php */
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centreert de .kiosk-main-container horizontaal */
+    justify-content: center; /* Centreert de .kiosk-main-container verticaal */
+    min-height: 100vh;
+    padding: 1rem;          /* Wat ademruimte aan de randen van het scherm */
+    box-sizing: border-box; /* Zorgt dat padding binnen de 100vh valt */
+    /* Achtergrondkleur wordt nu door Bootstrap's data-bs-theme="dark" en eventuele .bg-* class op body geregeld */
+}
+
+/* Zorgt dat de main content de beschikbare ruimte vult binnen de flexbox body */
+main.kiosk-content-wrapper { /* Geef <main> in layouts/kiosk.blade.php deze class */
+    flex-grow: 1;
+    display: flex;          /* Nodig om align-items/justify-content van body te laten werken op de child */
+    align-items: center;
+    justify-content: center;
+    width: 100%;            /* Neem volledige breedte binnen de padding van de body */
+}
+
+.kiosk-main-container { /* De daadwerkelijke 'kaart' van de kiosk */
+    width: 100%;
+    max-width: 480px; /* Houdt de kiosk interface compact en leesbaar */
+}
+/* .kiosk-card styling wordt nu grotendeels door Bootstrap .card, .shadow-lg en data-bs-theme="dark" gedaan.
+   Grootte van formulierelementen en knoppen doe je bij voorkeur met Bootstrap klassen zoals .form-control-lg, .btn-lg. */
+
+
+.price-buttons .btn {
+    margin-bottom: 0.5rem; /* Ruimte tussen prijs knoppen als ze onder elkaar komen (door Bootstrap's d-grid) */
+}
+
+/* Stijlen voor de floating theme switcher button */
+.theme-switcher-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1055; /* Hoger dan de meeste elementen, maar lager dan modals als die erboven moeten */
+}
+.theme-switcher-fab .dropdown-toggle::after {
+    display: none; /* Verberg de standaard dropdown pijl als je alleen een icoon wilt */
+}
+.theme-switcher-fab .btn {
+    width: 50px; /* Maak de knop rond of vierkant */
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Voor een ronde knop */
+    font-size: 1.25rem; /* Grootte van het icoon */
+}
+/* Icoontjes voor de themakiezer */
+.dropdown-item .theme-icon { opacity: .5; margin-right: .5rem; }
+.dropdown-item.active .theme-icon { opacity: 1; }
