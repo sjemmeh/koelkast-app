@@ -28,6 +28,7 @@ Dit project vereist een webserver (zoals Apache of Nginx), PHP (compatibele vers
         * `DB_USERNAME`: Database gebruikersnaam.
         * `DB_PASSWORD`: Database wachtwoord.
         * Zet `APP_ENV=production` en `APP_DEBUG=false` voor een live omgeving.
+    * Het zou ook met sqlite moeten werken, maar niet getest.
 
 4.  **Database Migraties:**
     * Zorg dat de database (gespecificeerd in `.env`) bestaat op je MariaDB server.
